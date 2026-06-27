@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutsch mit Natty | เรียนภาษาเยอรมันกับนัตตี้</title>
+<meta name="description" content="เว็บไซต์เตรียมสอบภาษาเยอรมันสำหรับคนไทย ระดับ A1 ถึง C2 คำศัพท์ แกรมมาร์ การฟัง การอ่าน และการเขียน">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Sarabun:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1220;
+  --navy2:#121B2E;
+  --navy3:#1A2740;
+  --gold:#C9A227;
+  --gold-light:#E2C275;
+  --ivory:#F3EEE2;
+  --ivory-dim:#A9A59A;
+  --wine:#B5495B;
+  --sage:#4E9F8E;
+  --hairline:rgba(243,238,226,0.12);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:radial-gradient(circle at 50% -10%, #16213e 0%, var(--navy) 55%);
+  color:var(--ivory);
+  font-family:'Sarabun',sans-serif;
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+:focus-visible{outline:1.5px solid var(--gold);outline-offset:3px;}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,18,32,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--hairline);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,4vw,3rem);
+}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+nav{display:flex;gap:clamp(1rem,2.5vw,2rem);}
+nav a{font-weight:500;font-size:.92rem;color:var(--ivory-dim);border-bottom:1px solid transparent;padding-bottom:3px;transition:color .15s,border-color .15s;}
+nav a:hover{color:var(--gold-light);border-color:var(--gold);}
+
+/* ---------- hero ---------- */
+.hero{
+  text-align:center;max-width:740px;margin:0 auto;
+  padding:clamp(3rem,7vw,5.5rem) clamp(1rem,4vw,3rem) 3.5rem;
+}
+.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:0 0 1.1rem;font-weight:600;}
+h1{font-family:'Sarabun',sans-serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.45;color:var(--ivory);margin:0 0 1.4rem;}
+.divider{width:54px;height:1px;background:var(--gold);margin:0 auto 1.4rem;}
+.de-greeting{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold-light);margin:0 0 1.4rem;}
+.hero-sub{font-size:1rem;color:var(--ivory-dim);margin:0 auto 2.2rem;max-width:46ch;}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+/* ---------- sections ---------- */
+section{padding:1rem clamp(1rem,4vw,3rem) 3rem;max-width:880px;margin:0 auto;}
+.section-title{font-family:'Sarabun',sans-serif;font-weight:700;font-size:1.55rem;color:var(--ivory);text-align:center;margin:0 0 .6rem;}
+.section-title::after{content:'';display:block;width:42px;height:1px;background:var(--gold);margin:.7rem auto 0;}
+.section-sub{text-align:center;color:var(--ivory-dim);font-size:.92rem;margin:0 0 2rem;}
+
+/* level tabs */
+.level-tabs{display:flex;gap:1.1rem;justify-content:center;overflow-x:auto;padding:.3rem 0 2rem;}
+.level-tab{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;padding:.2rem;}
+.level-tab .seal{
+  width:3.3rem;height:3.3rem;border-radius:50%;border:1.5px solid var(--ivory-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:700;color:var(--ivory-dim);font-size:1.05rem;
+  transition:border-color .15s,color .15s,background .15s;
+}
+.level-tab.active .seal{border-color:var(--gold);color:var(--navy);background:var(--gold);}
+.level-tab .sub{font-size:.7rem;color:var(--ivory-dim);}
+.level-tab.active .sub{color:var(--gold-light);}
+
+/* category tabs */
+.category-tabs{display:flex;gap:clamp(1rem,3vw,1.8rem);justify-content:center;overflow-x:auto;border-bottom:1px solid var(--hairline);margin-bottom:2.2rem;}
+.cat-tab{flex:0 0 auto;background:none;border:none;padding:.85rem .15rem;cursor:pointer;color:var(--ivory-dim);font-size:.9rem;font-weight:500;border-bottom:2px solid transparent;display:flex;align-items:center;gap:.45rem;}
+.cat-tab.active{color:var(--gold-light);border-color:var(--gold);}
+.cat-tab:hover{color:var(--ivory);}
+
+/* quiz cards */
+.q-card{background:var(--navy2);border:1px solid var(--hairline);border-radius:6px;padding:1.8rem 1.8rem 1.6rem;margin-bottom:1.3rem;}
+.q-num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.5rem;line-height:1;margin:0 0 .7rem;}
+.q-text{font-size:1.02rem;margin:0 0 .9rem;color:var(--ivory);}
+.de-word{font-family:'Space Mono',monospace;color:var(--gold-light);font-weight:700;letter-spacing:.01em;}
+.hint{font-size:.85rem;color:var(--ivory-dim);}
+.options{display:flex;flex-direction:column;}
+.opt-row{
+  display:flex;align-items:center;gap:.9rem;width:100%;text-align:left;
+  background:transparent;border:none;border-bottom:1px solid var(--hairline);
+  padding:.85rem .2rem;cursor:pointer;color:var(--ivory-dim);font-size:.95rem;
+  transition:color .15s,background .15s;
+}
+.opt-row:last-child{border-bottom:none;}
+.opt-row:hover{background:rgba(255,255,255,.03);color:var(--ivory);}
+.radio{flex-shrink:0;width:1.05rem;height:1.05rem;border-radius:50%;border:1.5px solid var(--ivory-dim);position:relative;}
+.opt-row.selected{color:var(--ivory);}
+.opt-row.selected .radio{border-color:var(--gold);}
+.opt-row.selected .radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--gold);}
+.graded .opt-row{pointer-events:none;}
+.opt-row.correct{color:var(--sage);}
+.opt-row.correct .radio{border-color:var(--sage);}
+.opt-row.correct .radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--sage);}
+.opt-row.incorrect{color:var(--wine);}
+.opt-row.incorrect .radio{border-color:var(--wine);}
+.opt-row.incorrect .radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--wine);}
+.explain{display:none;margin-top:1rem;padding:.9rem 1.1rem;background:rgba(201,162,39,.07);border-left:2px solid var(--gold);font-size:.9rem;color:var(--ivory-dim);border-radius:0 2px 2px 0;}
+.explain.show{display:block;}
+.speak-btn{background:transparent;border:1px solid var(--gold);color:var(--gold-light);border-radius:2px;padding:.5rem 1.1rem;font-size:.84rem;cursor:pointer;margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:.5rem;}
+.speak-btn:hover{background:rgba(201,162,39,.08);}
+.score-banner{font-weight:600;padding:1.2rem 1.5rem;border:1px solid var(--gold);border-radius:4px;margin-bottom:1.3rem;color:var(--gold-light);background:rgba(201,162,39,.06);font-size:1rem;}
+.submit-row{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.6rem;}
+.primary-btn{background:var(--gold);color:var(--navy);font-weight:600;padding:.8rem 1.8rem;border:1px solid var(--gold);border-radius:2px;cursor:pointer;font-size:.92rem;transition:background .15s;}
+.primary-btn:hover{background:var(--gold-light);}
+.ghost-btn{background:transparent;border:1px solid var(--ivory-dim);color:var(--ivory-dim);padding:.7rem 1.4rem;border-radius:2px;font-size:.88rem;cursor:pointer;transition:border-color .15s,color .15s;}
+.ghost-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+
+/* sentence builder */
+.word-pool{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
+.chip{display:inline-flex;padding:.55rem 1rem;border:1px solid var(--gold);background:transparent;color:var(--ivory);font-size:.92rem;cursor:pointer;border-radius:2px;}
+.chip.used{opacity:.22;pointer-events:none;}
+.answer-line{min-height:3.2rem;border-bottom:1px solid var(--hairline);display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:.8rem 0;margin:1.1rem 0;}
+.answer-line .chip{border-color:var(--gold-light);background:rgba(201,162,39,.1);}
+.answer-line:empty::before{content:'แตะคำด้านบนเพื่อเรียงเป็นประโยค...';color:var(--ivory-dim);font-size:.88rem;}
+.sentence-actions{display:flex;gap:.7rem;flex-wrap:wrap;}
+.sentence-result{margin-top:1.1rem;padding:1rem 1.2rem;border-radius:2px;display:none;font-size:.92rem;}
+.sentence-result.show{display:block;}
+.sentence-result.ok{border:1px solid var(--sage);background:rgba(78,159,142,.08);color:var(--sage);}
+.sentence-result.no{border:1px solid var(--wine);background:rgba(181,73,91,.08);color:var(--wine);}
+.sentence-result .disp{font-family:'Playfair Display',serif;font-style:italic;display:block;margin:.5rem 0;color:var(--gold-light);font-size:1.05rem;}
+
+/* reading */
+.passage-card{border-left:2px solid var(--gold);padding:.2rem 1.7rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1.06rem;line-height:1.95;color:var(--ivory-dim);margin-bottom:2.1rem;}
+
+/* writing */
+.writing-input{width:100%;min-height:100px;background:var(--navy3);border:1px solid var(--hairline);border-radius:2px;padding:.9rem;color:var(--ivory);font-size:.95rem;margin:1rem 0;resize:vertical;}
+.writing-input:focus{border-color:var(--gold);outline:none;}
+.writing-note{font-size:.85rem;color:var(--ivory-dim);margin-bottom:1.5rem;font-style:italic;text-align:center;}
+.writing-actions{display:flex;gap:.7rem;flex-wrap:wrap;}
+.ai-result{margin-top:.9rem;}
+.ai-feedback{padding:1.1rem 1.3rem;border-radius:2px;border:1px solid var(--hairline);}
+.ai-feedback.ok{border-color:var(--sage);background:rgba(78,159,142,.06);}
+.ai-feedback.needs-work{border-color:var(--gold);background:rgba(201,162,39,.06);}
+.ai-verdict{font-weight:700;margin:0 0 .5rem;color:var(--ivory);}
+.ai-explain{margin:.4rem 0 0;color:var(--ivory-dim);}
+.loading-text{color:var(--ivory-dim);}
+.error-text{color:var(--wine);}
+.sample-answer{margin-top:.9rem;padding:1rem 1.2rem;border:1px dashed var(--hairline);border-radius:2px;display:none;}
+.sample-answer.show{display:block;}
+.sample-answer .label{font-size:.78rem;color:var(--ivory-dim);margin-bottom:.5rem;}
+
+/* scores dashboard */
+.stats-row{display:flex;gap:1.3rem;margin-bottom:2.2rem;flex-wrap:wrap;}
+.stat-card{background:var(--navy2);border:1px solid var(--hairline);border-radius:6px;padding:1.6rem 1.5rem;text-align:center;flex:1;min-width:150px;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--gold);font-weight:700;}
+.stat-label{font-size:.83rem;color:var(--ivory-dim);margin-top:.4rem;}
+.level-block{margin-bottom:1.8rem;padding-bottom:1.3rem;border-bottom:1px solid var(--hairline);}
+.level-block h3{font-family:'Playfair Display',serif;font-size:1.25rem;margin:0 0 .9rem;color:var(--ivory);font-weight:700;}
+.level-block h3 .dim{font-family:'Sarabun',sans-serif;font-size:.78rem;color:var(--ivory-dim);font-weight:400;}
+.score-row{display:grid;grid-template-columns:1.1fr 1.6fr auto;gap:1rem;align-items:center;padding:.55rem 0;font-size:.9rem;color:var(--ivory-dim);}
+.score-row.empty{grid-template-columns:1fr auto;}
+.bar-wrap{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.bar{display:block;height:100%;background:var(--gold);}
+.score-num{font-family:'Space Mono',monospace;color:var(--gold-light);font-size:.82rem;text-align:right;}
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--ivory-dim);}
+.empty-state p{margin-bottom:1.3rem;}
+
+/* footer */
+footer{background:#070C16;border-top:1px solid var(--hairline);color:var(--ivory-dim);padding:2.6rem clamp(1rem,4vw,3rem) 2rem;margin-top:2rem;}
+.contact-card{max-width:880px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.6rem;justify-content:space-between;align-items:flex-end;}
+.contact-card h3{font-family:'Sarabun',sans-serif;font-weight:700;font-size:1.15rem;margin:0 0 .7rem;color:var(--gold);}
+.contact-links{display:flex;flex-direction:column;gap:.45rem;font-size:.92rem;}
+.contact-links a{color:var(--ivory-dim);border-bottom:1px solid rgba(255,255,255,.15);}
+.contact-links a:hover{color:var(--gold-light);border-color:var(--gold);}
+.copyright{font-size:.78rem;color:rgba(255,255,255,.32);margin-top:1.6rem;text-align:center;}
+
+/* toast */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--navy3);border:1px solid var(--gold);color:var(--ivory);padding:.7rem 1.2rem;border-radius:3px;font-size:.85rem;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.toast.show{opacity:1;}
+
+@media (max-width:600px){
+  .score-row{grid-template-columns:1fr;gap:.3rem;}
+  .score-num{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo">🇩🇪 Deutsch mit Natty</a>
+  <nav>
+    <a href="#home">หน้าแรก</a>
+    <a href="#levels">แบบทดสอบ</a>
+    <a href="#scores">คะแนนของฉัน</a>
+    <a href="#contact">ติดต่อ</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <p class="eyebrow">เว็บไซต์เตรียมสอบภาษาเยอรมัน สำหรับคนไทย</p>
+  <h1>ขอบคุณที่เข้ามาเยี่ยมชม<br>เว็บไซต์ของนัตตี้นะคะ</h1>
+  <div class="divider"></div>
+  <p class="de-greeting">"Vielen Dank, dass du Nattys Webseite besuchst!"</p>
+  <p class="hero-sub">ฝึกคำศัพท์ แกรมมาร์ แต่งประโยค การอ่าน การฟัง และการเขียน ตั้งแต่ระดับ A1 ถึง C2 ครบในที่เดียว พร้อมเฉลยและคะแนนทันทีหลังส่งคำตอบ</p>
+  <div class="hero-ctas">
+    <a href="#levels" class="primary-btn">เริ่มทำแบบทดสอบ</a>
+    <a href="#scores" class="ghost-btn">ดูคะแนนของฉัน</a>
+  </div>
+</section>
+
+<section id="levels">
+  <h2 class="section-title">เลือกระดับของคุณ</h2>
+  <p class="section-sub">ทุกแบบทดสอบมีเฉลยและคะแนนให้ทันทีหลังส่งคำตอบ</p>
+  <div class="level-tabs" id="level-tabs"></div>
+  <div class="category-tabs" id="category-tabs"></div>
+  <div id="quiz-area"></div>
+</section>
+
+<section id="scores">
+  <h2 class="section-title">คะแนนของฉัน</h2>
+  <p class="section-sub">สรุปผลการทำแบบทดสอบทั้งหมดของคุณ บันทึกไว้ในเบราว์เซอร์นี้</p>
+  <div id="scores-dashboard"></div>
+</section>
+
+<footer id="contact">
+  <div class="contact-card">
+    <div>
+      <h3>ติดต่อนัตตี้</h3>
+      <div class="contact-links">
+        <a href="mailto:natchanitt@gmail.com">natchanitt@gmail.com</a>
+        <a href="tel:+66886326232">+66 88 632 6232</a>
+      </div>
+    </div>
+    <div style="font-size:.9rem;max-width:32ch;">มีคำถาม ข้อเสนอแนะ หรืออยากให้เพิ่มเนื้อหาระดับไหนเป็นพิเศษ ทักมาได้เลยค่ะ</div>
+  </div>
+  <p class="copyright">© 2026 Deutsch mit Natty · ทำด้วยใจเพื่อคนไทยที่อยากเก่งภาษาเยอรมัน</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ DATA ============ */
+const LEVELS = [
+  {id:'A1', sub:'ผู้เริ่มต้น'},
+  {id:'A2', sub:'พื้นฐาน'},
+  {id:'B1', sub:'กลาง'},
+  {id:'B2', sub:'กลางสูง'},
+  {id:'C1', sub:'สูง'},
+  {id:'C2', sub:'เชี่ยวชาญ'}
+];
+
+const CATS = [
+  {id:'vocab', label:'คำศัพท์', icon:'📚'},
+  {id:'grammar', label:'แกรมมาร์', icon:'🧩'},
+  {id:'sentence', label:'แต่งประโยค', icon:'🔤'},
+  {id:'reading', label:'การอ่าน', icon:'📖'},
+  {id:'listening', label:'การฟัง', icon:'🎧'},
+  {id:'writing', label:'การเขียน', icon:'✍️'}
+];
+
+const DATA = {
+A1:{
+ vocab:[
+  {q:'<span class="de-word">Hallo</span> แปลว่าอะไร?', o:['สวัสดี','ขอบคุณ','ลาก่อน','ขอโทษ'], a:0, e:'Hallo ใช้ทักทายแบบไม่เป็นทางการ'},
+  {q:'<span class="de-word">Danke</span> แปลว่าอะไร?', o:['ขอโทษ','ขอบคุณ','ได้โปรด','ยินดี'], a:1, e:'ถ้าจะขอบคุณมากๆ พูดว่า Danke schön'},
+  {q:'<span class="de-word">die Familie</span> แปลว่าอะไร?', o:['โรงเรียน','เพื่อน','ครอบครัว','บ้าน'], a:2, e:'die Familie เป็นคำนามเพศหญิง (die)'},
+  {q:'<span class="de-word">der Bruder</span> แปลว่าอะไร?', o:['พี่/น้องชาย','พี่/น้องสาว','พ่อ','แม่'], a:0, e:'der Bruder เป็นคำนามเพศชาย (der)'},
+  {q:'<span class="de-word">die Schwester</span> แปลว่าอะไร?', o:['ลูกพี่ลูกน้อง','ปู่/ย่า','พี่/น้องสาว','ลุง/อา'], a:2, e:'die Schwester = พี่สาวหรือน้องสาว'},
+  {q:'<span class="de-word">rot</span> แปลว่าสีอะไร?', o:['สีเขียว','สีแดง','สีเหลือง','สีดำ'], a:1, e:'rot = สีแดง'},
+  {q:'<span class="de-word">blau</span> แปลว่าสีอะไร?', o:['สีฟ้า/น้ำเงิน','สีส้ม','สีม่วง','สีน้ำตาล'], a:0, e:'blau = สีฟ้าหรือสีน้ำเงิน'},
+  {q:'<span class="de-word">der Apfel</span> แปลว่าอะไร?', o:['กล้วย','แอปเปิ้ล','ส้ม','องุ่น'], a:1, e:'der Apfel = แอปเปิ้ล'},
+  {q:'<span class="de-word">das Wasser</span> แปลว่าอะไร?', o:['น้ำ','นม','กาแฟ','ชา'], a:0, e:'das Wasser เป็นคำนามเพศกลาง (das)'},
+  {q:'<span class="de-word">der Montag</span> แปลว่าวันอะไร?', o:['วันอาทิตย์','วันจันทร์','วันศุกร์','วันเสาร์'], a:1, e:'der Montag = วันจันทร์'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Ich ___ Anna.</span> <span class="hint">(heißen)</span>', o:['heiße','heißt','heißen','heißst'], a:0, e:'ich-heiße'},
+  {q:'<span class="de-word">Du ___ zehn Jahre alt.</span> <span class="hint">(sein)</span>', o:['bin','bist','ist','sind'], a:1, e:'du-bist'},
+  {q:'<span class="de-word">Wir ___ aus Thailand.</span> <span class="hint">(kommen)</span>', o:['komme','kommst','kommt','kommen'], a:3, e:'wir-kommen (เติม -en)'},
+  {q:'<span class="de-word">___ Buch ist neu.</span>', o:['Der','Die','Das','Den'], a:2, e:'das Buch เป็นคำนามเพศกลาง'},
+  {q:'<span class="de-word">Er hat ___ Hund.</span>', o:['ein','eine','einen','einem'], a:2, e:'der Hund เพศชาย รูป Akkusativ ใช้ einen'},
+  {q:'<span class="de-word">Wie ___ du?</span> <span class="hint">(heißen)</span>', o:['heiße','heißt','heißen','heißest'], a:1, e:'du-heißt'},
+  {q:'<span class="de-word">Wo ___ du?</span> <span class="hint">(wohnen)</span>', o:['wohne','wohnst','wohnt','wohnen'], a:1, e:'du-wohnst'},
+  {q:'<span class="de-word">Das ist ___ Auto.</span>', o:['mein','meine','meinen','meinem'], a:0, e:'das Auto เพศกลาง ใช้ mein'},
+  {q:'<span class="de-word">Ich habe ___ Schwester.</span>', o:['kein','keine','keinen','keinem'], a:1, e:'die Schwester เพศหญิง ปฏิเสธด้วย keine'},
+  {q:'<span class="de-word">___ kommst du?</span>', o:['Wo','Woher','Wann','Wer'], a:1, e:'Woher kommst du? = คุณมาจากไหน'}
+ ],
+ sentence:[
+  {w:['Ich','heiße','Natty','.'], disp:'Ich heiße Natty.', tr:'ฉันชื่อนัตตี้'},
+  {w:['Wo','wohnst','du','?'], disp:'Wo wohnst du?', tr:'คุณอาศัยอยู่ที่ไหน'},
+  {w:['Ich','komme','aus','Thailand','.'], disp:'Ich komme aus Thailand.', tr:'ฉันมาจากประเทศไทย'},
+  {w:['Er','hat','einen','Bruder','.'], disp:'Er hat einen Bruder.', tr:'เขามีพี่ชาย/น้องชายคนหนึ่ง'},
+  {w:['Wie','alt','bist','du','?'], disp:'Wie alt bist du?', tr:'คุณอายุเท่าไหร่'},
+  {w:['Das','ist','meine','Mutter','.'], disp:'Das ist meine Mutter.', tr:'นี่คือแม่ของฉัน'}
+ ],
+ reading:{
+  p:'Hallo! Ich heiße Lisa. Ich komme aus Deutschland und wohne in Berlin. Ich bin 22 Jahre alt. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tom und meine Schwester heißt Mia. Wir wohnen zusammen mit unseren Eltern.',
+  qs:[
+   {q:'Lisa มาจากประเทศอะไร?', o:['ไทย','เยอรมนี','ออสเตรีย','สวิตเซอร์แลนด์'], a:1, e:'ในข้อความ: Ich komme aus Deutschland'},
+   {q:'Lisa อายุเท่าไหร่?', o:['20 ปี','21 ปี','22 ปี','23 ปี'], a:2, e:'Ich bin 22 Jahre alt'},
+   {q:'พี่ชายของ Lisa ชื่ออะไร?', o:['Tom','Mia','Max','Paul'], a:0, e:'Mein Bruder heißt Tom'},
+   {q:'Lisa มีพี่น้องกี่คน?', o:['1 คน','2 คน','3 คน','ไม่มี'], a:1, e:'มีทั้งพี่ชายและพี่สาว/น้องสาว รวม 2 คน'}
+  ]
+ },
+ listening:[
+  {de:'Guten Morgen!', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['สวัสดีตอนเช้า','สวัสดีตอนเย็น','ราตรีสวัสดิ์','ลาก่อน'], a:0, e:'Guten Morgen = สวัสดีตอนเช้า'},
+  {de:'Wie heißt du?', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['คุณอายุเท่าไหร่','คุณชื่ออะไร','คุณมาจากไหน','คุณสบายดีไหม'], a:1, e:'Wie heißt du = คุณชื่ออะไร'},
+  {de:'Ich bin müde.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันหิว','ฉันเหนื่อย/ง่วง','ฉันมีความสุข','ฉันหนาว'], a:1, e:'müde = เหนื่อย/ง่วง'},
+  {de:'Wo ist die Toilette?', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ห้องน้ำอยู่ที่ไหน','ร้านอาหารอยู่ที่ไหน','สถานีรถไฟอยู่ที่ไหน','โรงแรมอยู่ที่ไหน'], a:0, e:'die Toilette = ห้องน้ำ'},
+  {de:'Das schmeckt gut.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['อันนี้แพงมาก','อาหารนี้อร่อย','ฉันไม่ชอบ','ขอบคุณมาก'], a:1, e:'schmecken = มีรสชาติ/อร่อย'},
+  {de:'Auf Wiedersehen!', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['สวัสดีตอนเช้า','ยินดีที่ได้รู้จัก','ลาก่อน (ทางการ)','ขอให้โชคดี'], a:2, e:'Auf Wiedersehen = ลาก่อนแบบทางการ'}
+ ],
+ writing:[
+  {prompt:'เขียนแนะนำตัวเองสั้นๆ เป็นภาษาเยอรมัน บอกชื่อ อายุ และว่ามาจากประเทศไทย (2-3 ประโยค)', sample:'Hallo, ich heiße Natty. Ich bin 25 Jahre alt. Ich komme aus Thailand.'},
+  {prompt:'เขียนบอกว่าคุณชอบกินอะไร เป็นภาษาเยอรมัน ลองเริ่มด้วย <span class="de-word">Ich esse gern...</span> (1-2 ประโยค)', sample:'Ich esse gern Pad Thai. Es schmeckt sehr gut.'},
+  {prompt:'เขียนคำถามภาษาเยอรมัน ถามเพื่อนว่าเขาอาศัยอยู่ที่ไหน (1 ประโยคคำถาม)', sample:'Wo wohnst du?'},
+  {prompt:'เขียนบอกว่าวันนี้วันอะไร และอากาศเป็นอย่างไร เป็นภาษาเยอรมัน', sample:'Heute ist Montag. Das Wetter ist schön und sonnig.'}
+ ]
+},
+A2:{
+ vocab:[
+  {q:'<span class="de-word">einkaufen</span> แปลว่าอะไร?', o:['ไปทำงาน','ไปซื้อของ','ไปเรียน','ไปเที่ยว'], a:1, e:'einkaufen = ไปซื้อของ'},
+  {q:'<span class="de-word">das Wetter</span> แปลว่าอะไร?', o:['สภาพอากาศ','ฤดูกาล','อุณหภูมิ','ภูมิอากาศทั่วไป'], a:0, e:'das Wetter = สภาพอากาศ'},
+  {q:'<span class="de-word">der Bahnhof</span> แปลว่าอะไร?', o:['สนามบิน','สถานีรถไฟ','ป้ายรถเมล์','ท่าเรือ'], a:1, e:'der Bahnhof = สถานีรถไฟ'},
+  {q:'<span class="de-word">billig</span> แปลว่าอะไร?', o:['แพง','ถูก (ราคา)','สวย','ใหม่'], a:1, e:'billig = ราคาถูก'},
+  {q:'<span class="de-word">der Termin</span> แปลว่าอะไร?', o:['การนัดหมาย','ของขวัญ','ตั๋ว','ใบเสร็จ'], a:0, e:'der Termin = การนัดหมาย'},
+  {q:'<span class="de-word">die Reise</span> แปลว่าอะไร?', o:['งานเลี้ยง','การเดินทาง','การประชุม','การพักผ่อนที่บ้าน'], a:1, e:'die Reise = การเดินทาง'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Ich ___ gestern ins Kino gegangen.</span> <span class="hint">(sein)</span>', o:['habe','bin','hat','ist'], a:1, e:'กริยาเคลื่อนที่ใช้ sein ช่วยใน Perfekt'},
+  {q:'<span class="de-word">Er ___ heute Deutsch lernen.</span>', o:['möchte','mag','muss nicht','kann nicht'], a:0, e:'möchte = อยากจะ (สุภาพกว่า will)'},
+  {q:'<span class="de-word">Ich habe das Buch ___.</span> <span class="hint">(lesen)</span>', o:['lest','gelesen','liest','lesen'], a:1, e:'Partizip II ของ lesen คือ gelesen'},
+  {q:'<span class="de-word">Sie gibt ___ Mutter ein Geschenk.</span>', o:['die','der','den','dem'], a:1, e:'die Mutter ในรูป Dativ คือ der Mutter'},
+  {q:'<span class="de-word">Das Auto ist ___ als das Fahrrad.</span> <span class="hint">(schnell)</span>', o:['schnell','schneller','am schnellsten','so schnell'], a:1, e:'รูปเปรียบเทียบของ schnell คือ schneller'},
+  {q:'<span class="de-word">Wir ___ um 8 Uhr aufstehen.</span> <span class="hint">(müssen)</span>', o:['muss','müssen','müsst','musst'], a:1, e:'wir-müssen'}
+ ],
+ sentence:[
+  {w:['Ich','habe','gestern','einen','Film','gesehen','.'], disp:'Ich habe gestern einen Film gesehen.', tr:'เมื่อวานฉันดูหนังเรื่องหนึ่ง'},
+  {w:['Kannst','du','mir','helfen','?'], disp:'Kannst du mir helfen?', tr:'คุณช่วยฉันได้ไหม'},
+  {w:['Wir','müssen','jetzt','gehen','.'], disp:'Wir müssen jetzt gehen.', tr:'ตอนนี้เราต้องไปแล้ว'},
+  {w:['Das','Wetter','ist','heute','schön','.'], disp:'Das Wetter ist heute schön.', tr:'วันนี้อากาศดี'}
+ ],
+ reading:{
+  p:'Jeden Tag stehe ich um sieben Uhr auf. Zuerst dusche ich und dann esse ich Frühstück. Um acht Uhr fahre ich mit dem Bus zur Arbeit. Nach der Arbeit gehe ich oft einkaufen oder treffe meine Freunde.',
+  qs:[
+   {q:'เขาตื่นกี่โมง?', o:['6 โมง','7 โมง','8 โมง','9 โมง'], a:1, e:'um sieben Uhr auf'},
+   {q:'เขาไปทำงานด้วยอะไร?', o:['รถไฟ','รถบัส','จักรยาน','เดิน'], a:1, e:'mit dem Bus zur Arbeit'},
+   {q:'หลังเลิกงานเขามักทำอะไร?', o:['นอน','ไปซื้อของหรือพบเพื่อน','ทำการบ้าน','ดูทีวี'], a:1, e:'gehe ich oft einkaufen oder treffe meine Freunde'}
+  ]
+ },
+ listening:[
+  {de:'Können Sie mir bitte helfen?', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['คุณช่วยฉันได้ไหมคะ (สุภาพ)','คุณชื่ออะไร','ขอโทษนะคะ','ยินดีที่ได้รู้จัก'], a:0, e:'Können Sie...helfen = รูปสุภาพของการขอความช่วยเหลือ'},
+  {de:'Es tut mir leid.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันดีใจมาก','ฉันขอโทษ/เสียใจ','ฉันไม่ทราบ','ขอบคุณมาก'], a:1, e:'Es tut mir leid = ฉันขอโทษ/เสียใจ'},
+  {de:'Ich habe keine Zeit.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันไม่มีเวลา','ฉันไม่มีเงิน','ฉันไม่หิว','ฉันไม่รู้จัก'], a:0, e:'keine Zeit = ไม่มีเวลา'},
+  {de:'Wie spät ist es?', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ตอนนี้กี่โมงแล้ว','วันนี้วันอะไร','อากาศเป็นอย่างไร','ที่นี่คือที่ไหน'], a:0, e:'Wie spät ist es = ตอนนี้กี่โมงแล้ว'}
+ ],
+ writing:[
+  {prompt:'เขียนเล่าว่าเมื่อวานคุณทำอะไรบ้าง โดยใช้โครงสร้าง Perfekt อย่างน้อย 2 ประโยค', sample:'Gestern bin ich ins Kino gegangen. Danach habe ich mit Freunden zu Abend gegessen.'},
+  {prompt:'เขียนขอความช่วยเหลือจากเพื่อนอย่างสุภาพ เป็นภาษาเยอรมัน', sample:'Entschuldigung, könnten Sie mir bitte helfen?'},
+  {prompt:'เขียนบอกแผนการในวันหยุดสุดสัปดาห์นี้ โดยใช้ <span class="de-word">möchte</span> หรือ <span class="de-word">will</span>', sample:'Am Wochenende möchte ich mit meiner Familie einen Ausflug machen.'}
+ ]
+},
+B1:{
+ vocab:[
+  {q:'<span class="de-word">die Umwelt</span> แปลว่าอะไร?', o:['สิ่งแวดล้อม','สภาพอากาศ','สังคม','เศรษฐกิจ'], a:0, e:'die Umwelt = สิ่งแวดล้อม'},
+  {q:'<span class="de-word">die Erfahrung</span> แปลว่าอะไร?', o:['ความรู้','ประสบการณ์','ความฝัน','ความสำเร็จ'], a:1, e:'die Erfahrung = ประสบการณ์'},
+  {q:'<span class="de-word">verantwortlich</span> แปลว่าอะไร?', o:['มีความสุข','มีความรับผิดชอบ','มีความมั่นใจ','มีความระมัดระวัง'], a:1, e:'verantwortlich = มีความรับผิดชอบ'},
+  {q:'<span class="de-word">die Entscheidung</span> แปลว่าอะไร?', o:['การตัดสินใจ','การเปลี่ยนแปลง','การพัฒนา','การยอมรับ'], a:0, e:'die Entscheidung = การตัดสินใจ'},
+  {q:'<span class="de-word">der Vorteil</span> แปลว่าอะไร?', o:['ข้อเสีย','ข้อดี','ข้อยกเว้น','ข้อเสนอ'], a:1, e:'der Vorteil = ข้อดี (der Nachteil = ข้อเสีย)'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Ich ___ gestern keine Zeit.</span> <span class="hint">(haben, Präteritum)</span>', o:['habe','hatte','hat','hatten'], a:1, e:'ich-hatte (Präteritum ของ haben)'},
+  {q:'<span class="de-word">Wenn ich Zeit hätte, ___ ich reisen.</span>', o:['werde','würde','wurde','war'], a:1, e:'Konjunktiv II: würde + Infinitiv'},
+  {q:'<span class="de-word">Das ist der Mann, ___ mir geholfen hat.</span>', o:['die','das','der','den'], a:2, e:'der Mann (maskulin, Nominativ) → der'},
+  {q:'<span class="de-word">Das Haus wird gerade ___.</span> <span class="hint">(bauen)</span>', o:['baut','gebaut','bauend','gebauen'], a:1, e:'Passiv: wird + Partizip II (gebaut)'},
+  {q:'<span class="de-word">___ es regnete, gingen wir spazieren.</span>', o:['Weil','Obwohl','Dass','Ob'], a:1, e:'Obwohl = ถึงแม้ว่า'}
+ ],
+ sentence:[
+  {w:['Obwohl','es','regnete','gingen','wir','spazieren','.'], disp:'Obwohl es regnete, gingen wir spazieren.', tr:'ถึงแม้ฝนตก เราก็ยังออกไปเดินเล่น'},
+  {w:['Ich','würde','gern','nach','Deutschland','reisen','.'], disp:'Ich würde gern nach Deutschland reisen.', tr:'ฉันอยากไปเที่ยวเยอรมนี'},
+  {w:['Das','Buch','das','ich','lese','ist','interessant','.'], disp:'Das Buch, das ich lese, ist interessant.', tr:'หนังสือที่ฉันอ่านน่าสนใจ'},
+  {w:['Er','hat','die','Prüfung','bestanden','.'], disp:'Er hat die Prüfung bestanden.', tr:'เขาผ่านการสอบ'}
+ ],
+ reading:{
+  p:'Viele Menschen versuchen heute, weniger Plastik zu benutzen, um die Umwelt zu schützen. Sie kaufen zum Beispiel Obst und Gemüse ohne Plastikverpackung und benutzen Stofftaschen statt Plastiktüten. Auch beim Einkaufen achten immer mehr Leute darauf, regionale Produkte zu wählen, weil das gut für die Umwelt ist.',
+  qs:[
+   {q:'ข้อความนี้พูดถึงอะไร?', o:['การออกกำลังกาย','การลดใช้พลาสติกเพื่อสิ่งแวดล้อม','การทำอาหาร','การท่องเที่ยว'], a:1, e:'weniger Plastik...um die Umwelt zu schützen'},
+   {q:'คนเหล่านี้ใช้อะไรแทนถุงพลาสติก?', o:['ถุงผ้า','กล่องกระดาษ','ตะกร้าไม้','ไม่ใช้ถุงเลย'], a:0, e:'Stofftaschen = ถุงผ้า'},
+   {q:'ทำไมคนถึงเลือกซื้อสินค้าท้องถิ่น?', o:['ราคาถูกกว่า','ดีต่อสิ่งแวดล้อม','หาซื้อง่ายกว่า','อร่อยกว่า'], a:1, e:'regionale Produkte...weil das gut für die Umwelt ist'}
+  ]
+ },
+ listening:[
+  {de:'Ich finde, wir sollten mehr Sport machen.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันคิดว่าเราควรออกกำลังกายมากขึ้น','ฉันไม่ชอบกีฬา','เราไม่มีเวลาออกกำลังกาย','กีฬาไม่สำคัญ'], a:0, e:'Ich finde, dass... = ฉันคิดว่า...'},
+  {de:'Das hängt von der Situation ab.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['มันขึ้นอยู่กับสถานการณ์','มันไม่สำคัญเลย','มันเกิดขึ้นบ่อยมาก','มันผิดปกติ'], a:0, e:'abhängen von = ขึ้นอยู่กับ'},
+  {de:'Ich bin mir nicht sicher.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันมั่นใจมาก','ฉันไม่แน่ใจ','ฉันไม่เห็นด้วย','ฉันเห็นด้วยอย่างยิ่ง'], a:1, e:'nicht sicher = ไม่แน่ใจ'},
+  {de:'Das könnte ein Problem sein.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['นี่อาจเป็นปัญหาได้','นี่ไม่ใช่ปัญหา','ปัญหาแก้ไขแล้ว','ไม่มีปัญหาอะไร'], a:0, e:'könnte = อาจจะ'}
+ ],
+ writing:[
+  {prompt:'เขียนแสดงความคิดเห็นสั้นๆ ว่าทำไมการรักษาสิ่งแวดล้อมจึงสำคัญ (3-4 ประโยค)', sample:'Der Umweltschutz ist sehr wichtig, weil wir nur eine Erde haben. Wenn wir die Natur nicht schützen, werden zukünftige Generationen darunter leiden. Deshalb sollten wir weniger Plastik benutzen und mehr recyceln.'},
+  {prompt:'เขียนประโยคแบบ Konjunktiv II บอกว่าถ้าคุณมีเงินมากๆ คุณจะทำอะไร', sample:'Wenn ich viel Geld hätte, würde ich um die Welt reisen und meiner Familie helfen.'},
+  {prompt:'เขียนอธิบายเหตุผลที่คุณเรียนภาษาเยอรมัน โดยใช้ <span class="de-word">weil</span> หรือ <span class="de-word">deshalb</span>', sample:'Ich lerne Deutsch, weil ich in Deutschland studieren möchte. Deshalb übe ich jeden Tag ein bisschen.'}
+ ]
+},
+B2:{
+ vocab:[
+  {q:'<span class="de-word">die Auswirkung</span> แปลว่าอะไร?', o:['สาเหตุ','ผลกระทบ','ข้อสรุป','ข้อเสนอ'], a:1, e:'die Auswirkung = ผลกระทบ'},
+  {q:'<span class="de-word">die Voraussetzung</span> แปลว่าอะไร?', o:['ผลลัพธ์','เงื่อนไข/ข้อกำหนดเบื้องต้น','ข้อยกเว้น','ความเห็น'], a:1, e:'die Voraussetzung = เงื่อนไขที่จำเป็น'},
+  {q:'<span class="de-word">zunehmend</span> แปลว่าอะไร?', o:['ลดลงเรื่อยๆ','เพิ่มขึ้นเรื่อยๆ','คงที่','ไม่แน่นอน'], a:1, e:'zunehmend = เพิ่มขึ้นเรื่อยๆ'},
+  {q:'<span class="de-word">die Maßnahme</span> แปลว่าอะไร?', o:['มาตรการ','มาตรฐาน','การวัด','การประเมิน'], a:0, e:'die Maßnahme = มาตรการ'},
+  {q:'<span class="de-word">gewährleisten</span> แปลว่าอะไร?', o:['ปฏิเสธ','รับประกัน/ทำให้มั่นใจ','ยกเลิก','เลื่อนออกไป'], a:1, e:'gewährleisten = รับประกัน/ทำให้มั่นใจ'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Er sagte, dass er müde ___.</span> <span class="hint">(sein, Konjunktiv I)</span>', o:['ist','war','sei','wäre'], a:2, e:'Konjunktiv I ใน indirekte Rede: er sei'},
+  {q:'<span class="de-word">Das Problem muss schnell ___ werden.</span> <span class="hint">(lösen)</span>', o:['löst','gelöst','lösend','löste'], a:1, e:'Passiv + Modalverb: muss...gelöst werden'},
+  {q:'<span class="de-word">Die ___ des Problems dauerte lange.</span>', o:['Lösung','Löse','Lösend','Löser'], a:0, e:'Nominalisierung ของ lösen คือ die Lösung'},
+  {q:'<span class="de-word">Er hat die Verantwortung für das Projekt ___.</span> <span class="hint">(übernehmen)</span>', o:['übernommen','übergenommen','übernehmen','übernahm'], a:0, e:'Partizip II ของ übernehmen คือ übernommen'},
+  {q:'<span class="de-word">Das Buch ___ Lehrerin liegt auf dem Tisch.</span>', o:['die','der','den','dem'], a:1, e:'die Lehrerin (Genitiv) → der Lehrerin'}
+ ],
+ sentence:[
+  {w:['Trotz','des','schlechten','Wetters','fand','das','Festival','statt','.'], disp:'Trotz des schlechten Wetters fand das Festival statt.', tr:'เทศกาลจัดขึ้นทั้งที่สภาพอากาศไม่ดี'},
+  {w:['Die','Firma','hat','beschlossen','neue','Mitarbeiter','einzustellen','.'], disp:'Die Firma hat beschlossen, neue Mitarbeiter einzustellen.', tr:'บริษัทตัดสินใจรับพนักงานใหม่'},
+  {w:['Je','mehr','man','übt','desto','besser','wird','man','.'], disp:'Je mehr man übt, desto besser wird man.', tr:'ยิ่งฝึกมากเท่าไหร่ก็ยิ่งเก่งขึ้นเท่านั้น'},
+  {w:['Ohne','seine','Hilfe','hätten','wir','es','nicht','geschafft','.'], disp:'Ohne seine Hilfe hätten wir es nicht geschafft.', tr:'ถ้าไม่มีความช่วยเหลือของเขา เราคงทำไม่สำเร็จ'}
+ ],
+ reading:{
+  p:'Immer mehr Unternehmen bieten ihren Mitarbeitern die Möglichkeit, von zu Hause aus zu arbeiten. Studien zeigen, dass Homeoffice die Produktivität steigern kann, allerdings fehlt manchen Mitarbeitern der persönliche Kontakt zu Kollegen. Experten empfehlen daher ein flexibles Modell, bei dem Mitarbeiter sowohl im Büro als auch von zu Hause arbeiten können.',
+  qs:[
+   {q:'ข้อความนี้พูดถึงอะไรเป็นหลัก?', o:['การท่องเที่ยว','การทำงานจากบ้าน','การเรียนออนไลน์','สุขภาพ'], a:1, e:'von zu Hause aus zu arbeiten = ทำงานจากบ้าน'},
+   {q:'ปัญหาของการทำงานจากบ้านที่กล่าวถึงคืออะไร?', o:['ค่าไฟแพง','ขาดการพบปะเพื่อนร่วมงาน','อินเทอร์เน็ตช้า','เสียงดัง'], a:1, e:'fehlt...der persönliche Kontakt zu Kollegen'},
+   {q:'ผู้เชี่ยวชาญแนะนำโมเดลแบบไหน?', o:['ทำงานที่ออฟฟิศเท่านั้น','ทำงานที่บ้านเท่านั้น','โมเดลแบบผสมผสาน','ลดวันทำงาน'], a:2, e:'ein flexibles Modell...sowohl im Büro als auch von zu Hause'}
+  ]
+ },
+ listening:[
+  {de:'Ich hätte das nicht erwartet.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ฉันไม่ได้คาดคิดว่าจะเป็นแบบนี้','ฉันรอเรื่องนี้มานานแล้ว','ฉันไม่สนใจเรื่องนี้','ฉันคาดเดาถูกแล้ว'], a:0, e:'erwarten = คาดหวัง/คาดคิด'},
+  {de:'Das kommt darauf an.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ขึ้นอยู่กับสถานการณ์','มันแน่นอนอยู่แล้ว','มันเป็นไปไม่ได้','มันเกิดขึ้นแล้ว'], a:0, e:'es kommt darauf an = ขึ้นอยู่กับ'},
+  {de:'Er hat sich sehr verändert.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['เขาเปลี่ยนไปมาก','เขาไม่เปลี่ยนเลย','เขาป่วย','เขายังเด็กอยู่'], a:0, e:'sich verändern = เปลี่ยนแปลง(ตัวเอง)'},
+  {de:'Wir sollten das genauer besprechen.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['เราควรคุยเรื่องนี้ให้ละเอียดกว่านี้','เราไม่ต้องคุยเรื่องนี้','เราตกลงกันแล้ว','เราลืมเรื่องนี้ไปแล้ว'], a:0, e:'genauer besprechen = คุยให้ละเอียดขึ้น'}
+ ],
+ writing:[
+  {prompt:'เขียนแสดงความเห็นสนับสนุนหรือคัดค้านการทำงานจากบ้าน (Homeoffice) พร้อมเหตุผล (4-5 ประโยค)', sample:'Meiner Meinung nach hat Homeoffice viele Vorteile, zum Beispiel mehr Flexibilität und weniger Pendelzeit. Allerdings fehlt manchen Mitarbeitern der persönliche Kontakt zu Kollegen. Insgesamt finde ich ein hybrides Modell am sinnvollsten.'},
+  {prompt:'เขียนสรุปข้อดีข้อเสียของโซเชียลมีเดียอย่างเป็นกลาง', sample:'Soziale Medien ermöglichen schnelle Kommunikation und Information, können aber auch süchtig machen und die psychische Gesundheit beeinträchtigen. Ein bewusster Umgang ist daher wichtig.'},
+  {prompt:'เขียนอีเมลสั้นๆ ขอเลื่อนนัดหมายอย่างเป็นทางการ', sample:'Sehr geehrte Damen und Herren, leider muss ich unseren Termin verschieben. Wäre es möglich, einen neuen Termin nächste Woche zu vereinbaren? Mit freundlichen Grüßen.'}
+ ]
+},
+C1:{
+ vocab:[
+  {q:'<span class="de-word">die Diskrepanz</span> แปลว่าอะไร?', o:['ความเหมือนกัน','ความไม่สอดคล้องกัน','ความสมบูรณ์','ความชัดเจน'], a:1, e:'die Diskrepanz = ความไม่สอดคล้องกัน'},
+  {q:'<span class="de-word">kontrovers</span> แปลว่าอะไร?', o:['เป็นที่ยอมรับ','เป็นที่ถกเถียง','เป็นความลับ','เป็นทางการ'], a:1, e:'kontrovers = เป็นที่ถกเถียง'},
+  {q:'<span class="de-word">die Tragweite</span> แปลว่าอะไร?', o:['ขอบเขต/นัยสำคัญ','น้ำหนัก (ทางกายภาพ)','ระยะทาง','ความเร็ว'], a:0, e:'die Tragweite = ขอบเขตความสำคัญ'},
+  {q:'<span class="de-word">nachvollziehbar</span> แปลว่าอะไร?', o:['เข้าใจได้/มีเหตุผลรองรับ','ซับซ้อนเกินไป','เป็นไปไม่ได้','ไม่น่าเชื่อถือ'], a:0, e:'nachvollziehbar = เข้าใจได้ตามเหตุผล'},
+  {q:'<span class="de-word">das Dilemma</span> แปลว่าอะไร?', o:['ทางออกที่ดี','สถานการณ์กลืนไม่เข้าคายไม่ออก','ความสำเร็จ','ข้อตกลง'], a:1, e:'das Dilemma = สถานการณ์ที่ต้องเลือกระหว่างทางที่ยากทั้งคู่'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Die ___ Probleme müssen gelöst werden.</span> <span class="hint">(anstehen)</span>', o:['anstehenden','anstehend','angestanden','anstehen'], a:0, e:'Partizip I เป็นคำคุณศัพท์ขยายนามพหูพจน์ ลงท้าย -en'},
+  {q:'<span class="de-word">Hätte ich das gewusst, ___ ich anders gehandelt.</span>', o:['habe','hätte','hatte','werde'], a:1, e:'Konjunktiv II Vergangenheit: hätte...gehandelt'},
+  {q:'<span class="de-word">Das Problem ist nicht leicht ___ lösen.</span>', o:['zu','um','an','bei'], a:0, e:'sein + zu + Infinitiv = ทางเลือกของ Passiv'},
+  {q:'<span class="de-word">___ er krank war, kam er trotzdem zur Prüfung.</span>', o:['Obgleich','Weil','Damit','Ob'], a:0, e:'Obgleich = ถึงแม้ว่า (ทางการกว่า obwohl)'},
+  {q:'<span class="de-word">Die Lösung, mit ___ wir nicht zufrieden waren, wurde geändert.</span>', o:['die','der','dem','den'], a:1, e:'die Lösung (feminin, Dativ) → mit der'}
+ ],
+ sentence:[
+  {w:['Angesichts','der','aktuellen','Lage','sind','weitere','Maßnahmen','erforderlich','.'], disp:'Angesichts der aktuellen Lage sind weitere Maßnahmen erforderlich.', tr:'เมื่อพิจารณาสถานการณ์ปัจจุบัน จำเป็นต้องมีมาตรการเพิ่มเติม'},
+  {w:['Es','lässt','sich','nicht','leugnen','dass','sich','vieles','verändert','hat','.'], disp:'Es lässt sich nicht leugnen, dass sich vieles verändert hat.', tr:'ปฏิเสธไม่ได้ว่าหลายอย่างเปลี่ยนไปมาก'},
+  {w:['Insofern','als','er','recht','hat','sollten','wir','zustimmen','.'], disp:'Insofern als er recht hat, sollten wir zustimmen.', tr:'ในแง่ที่เขาพูดถูก เราก็ควรเห็นด้วย'},
+  {w:['Ihm','zufolge','wird','sich','die','Lage','bald','bessern','.'], disp:'Ihm zufolge wird sich die Lage bald bessern.', tr:'ตามที่เขาว่า สถานการณ์จะดีขึ้นในไม่ช้า'}
+ ],
+ reading:{
+  p:'Die fortschreitende Digitalisierung verändert nicht nur die Arbeitswelt, sondern auch unser soziales Miteinander grundlegend. Während Befürworter die enormen Chancen für Effizienz und Vernetzung betonen, warnen Kritiker vor einer zunehmenden Vereinsamung und dem Verlust zwischenmenschlicher Nähe. Es bleibt abzuwarten, inwiefern es gelingt, technologischen Fortschritt mit sozialem Zusammenhalt in Einklang zu bringen.',
+  qs:[
+   {q:'ผู้เขียนพูดถึงเรื่องอะไรเป็นหลัก?', o:['ผลกระทบของดิจิทัลต่อสังคม','ประวัติของอินเทอร์เน็ต','การลงทุนด้านเทคโนโลยี','การศึกษาออนไลน์'], a:0, e:'die Digitalisierung verändert...soziales Miteinander'},
+   {q:'ผู้ที่สนับสนุนดิจิทัลให้ความสำคัญกับอะไร?', o:['ประสิทธิภาพและการเชื่อมต่อ','ความปลอดภัย','ราคาที่ถูกลง','ความบันเทิง'], a:0, e:'Effizienz und Vernetzung'},
+   {q:'ผู้ที่วิจารณ์กังวลเรื่องอะไร?', o:['ค่าใช้จ่ายที่สูง','ความโดดเดี่ยวและการขาดความใกล้ชิด','ความล้าหลังทางเทคโนโลยี','การไม่มีอินเทอร์เน็ต'], a:1, e:'Vereinsamung...Verlust zwischenmenschlicher Nähe'}
+  ]
+ },
+ listening:[
+  {de:'Das steht außer Frage.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['เรื่องนี้ไม่ต้องสงสัยเลย','เรื่องนี้ยังไม่แน่ชัด','เรื่องนี้เป็นไปไม่ได้','เรื่องนี้ผิดทั้งหมด'], a:0, e:'außer Frage stehen = ไม่ต้องสงสัย/แน่นอน'},
+  {de:'Im Großen und Ganzen bin ich zufrieden.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['โดยรวมแล้วฉันพอใจ','ฉันไม่พอใจเลย','ฉันยังไม่แน่ใจ','ฉันเฉยๆ'], a:0, e:'im Großen und Ganzen = โดยรวม'},
+  {de:'Es kommt nicht von ungefähr, dass er erfolgreich ist.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ไม่ใช่เรื่องบังเอิญที่เขาประสบความสำเร็จ','เขาประสบความสำเร็จโดยบังเอิญ','เขายังไม่ประสบความสำเร็จ','ไม่มีใครรู้ว่าทำไมเขาสำเร็จ'], a:0, e:'nicht von ungefähr = ไม่ใช่เรื่องบังเอิญ'},
+  {de:'Das lässt sich kaum bestreiten.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['เรื่องนี้ปฏิเสธได้ยาก','เรื่องนี้ปฏิเสธได้ง่าย','เรื่องนี้ไม่มีใครเชื่อ','เรื่องนี้ยังพิสูจน์ไม่ได้'], a:0, e:'sich bestreiten lassen = ปฏิเสธได้'}
+ ],
+ writing:[
+  {prompt:'เขียนวิเคราะห์สั้นๆ ว่าเทคโนโลยีมีผลต่อความสัมพันธ์ของมนุษย์อย่างไร โดยใช้โครงสร้างประโยคที่ซับซ้อน', sample:'Die zunehmende Digitalisierung verändert zwischenmenschliche Beziehungen grundlegend. Obwohl Technologie die Kommunikation erleichtert, könnte sie gleichzeitig zu einer oberflächlicheren Form des Kontakts führen.'},
+  {prompt:'เขียนแสดงความเห็นโต้แย้งต่อประเด็นที่กำลังถูกถกเถียงอยู่ในสังคมปัจจุบัน', sample:'Obgleich viele die Vorteile betonen, lässt sich nicht leugnen, dass diese Entwicklung auch erhebliche Risiken birgt, die nicht unterschätzt werden sollten.'}
+ ]
+},
+C2:{
+ vocab:[
+  {q:'<span class="de-word">die Nuance</span> แปลว่าอะไร?', o:['ความแตกต่างที่ละเอียดอ่อน','ความแตกต่างที่ชัดเจนมาก','ความเหมือนกันทุกอย่าง','ข้อผิดพลาด'], a:0, e:'die Nuance = ความแตกต่างเล็กๆที่ละเอียดอ่อน'},
+  {q:'<span class="de-word">das Postulat</span> แปลว่าอะไร?', o:['ข้อเท็จจริงที่พิสูจน์แล้ว','ข้อสันนิษฐาน/สมมุติฐานเชิงทฤษฎี','คำสั่ง','ข้อยกเว้น'], a:1, e:'das Postulat = ข้อสันนิษฐานที่ตั้งขึ้นโดยยังไม่พิสูจน์'},
+  {q:'<span class="de-word">unumstößlich</span> แปลว่าอะไร?', o:['เปลี่ยนแปลงได้ง่าย','ไม่อาจเปลี่ยนแปลง/หักล้างได้','น่าสงสัย','ไม่แน่นอน'], a:1, e:'unumstößlich = ไม่อาจหักล้างได้'},
+  {q:'<span class="de-word">die Implikation</span> แปลว่าอะไร?', o:['ข้อสรุปหลัก','นัยที่แฝงอยู่/ผลพ่วง','สาเหตุโดยตรง','ข้อพิสูจน์'], a:1, e:'die Implikation = นัยที่แฝงอยู่ในเรื่องนั้น'},
+  {q:'<span class="de-word">divergent</span> แปลว่าอะไร?', o:['สอดคล้องกัน','แตกต่างไปในทิศทางต่างกัน','เหมือนกันทุกประการ','ตรงข้ามอย่างสิ้นเชิง'], a:1, e:'divergent = แยกออกไปในทิศทางต่างกัน'}
+ ],
+ grammar:[
+  {q:'<span class="de-word">Er erklärte, er ___ pünktlich kommen.</span> <span class="hint">(werden, Konjunktiv I)</span>', o:['wird','werde','würde','wäre'], a:1, e:'Konjunktiv I ใน indirekte Rede: er werde'},
+  {q:'<span class="de-word">Die Reform betrifft nicht ___ die Wirtschaft, sondern auch die Gesellschaft.</span>', o:['nur','auch','sogar','selbst'], a:0, e:'nicht nur...sondern auch'},
+  {q:'<span class="de-word">Den Berichten zufolge ___ die Verhandlungen gescheitert.</span> <span class="hint">(sein, Konjunktiv I Plural)</span>', o:['sind','waren','seien','wären'], a:2, e:'Konjunktiv I พหูพจน์: sie seien'},
+  {q:'<span class="de-word">___ der Kritik setzte er seinen Plan fort.</span>', o:['Ungeachtet','Trotzdem','Obwohl','Wegen'], a:0, e:'Ungeachtet + Genitiv = สำนวนทางการของ trotz'},
+  {q:'<span class="de-word">Er kann nicht einmal kochen, ___ ein ganzes Menü zubereiten.</span>', o:['geschweige denn','außerdem','sodass','indem'], a:0, e:'geschweige denn = ยิ่งไม่ต้องพูดถึง'}
+ ],
+ sentence:[
+  {w:['Ungeachtet','aller','Bedenken','wurde','das','Projekt','fortgesetzt','.'], disp:'Ungeachtet aller Bedenken wurde das Projekt fortgesetzt.', tr:'โครงการยังดำเนินต่อไปโดยไม่คำนึงถึงข้อกังวลทั้งหมด'},
+  {w:['Geschweige','denn','dass','er','sich','entschuldigt','hätte','.'], disp:'Geschweige denn, dass er sich entschuldigt hätte.', tr:'ยิ่งไม่ต้องพูดถึงว่าเขาจะขอโทษด้วยซ้ำ'},
+  {w:['Nichtsdestotrotz','hielt','sie','an','ihrer','Meinung','fest','.'], disp:'Nichtsdestotrotz hielt sie an ihrer Meinung fest.', tr:'กระนั้นก็ตาม เธอก็ยังยึดมั่นในความคิดเห็นของตัวเอง'},
+  {w:['Inwieweit','sich','diese','These','bewahrheiten','wird','bleibt','offen','.'], disp:'Inwieweit sich diese These bewahrheiten wird, bleibt offen.', tr:'ยังไม่แน่ชัดว่าทฤษฎีนี้จะเป็นจริงมากน้อยเพียงใด'}
+ ],
+ reading:{
+  p:'Die Frage, inwiefern Sprache unser Denken determiniert, beschäftigt Linguisten seit Jahrzehnten. Die sogenannte Sapir-Whorf-Hypothese postuliert, dass die Struktur einer Sprache die Wahrnehmung ihrer Sprecher prägt. Wenngleich diese These in ihrer radikalen Form mittlerweile weitgehend widerlegt wurde, gilt eine moderate Version, wonach Sprache unser Denken zumindest beeinflusst, ohne es vollständig zu determinieren, nach wie vor als plausibel.',
+  qs:[
+   {q:'ข้อความนี้พูดถึงทฤษฎีอะไร?', o:['ทฤษฎีวิวัฒนาการ','สมมติฐาน Sapir-Whorf','ทฤษฎีสัมพัทธภาพ','ทฤษฎีการเรียนรู้'], a:1, e:'die sogenannte Sapir-Whorf-Hypothese'},
+   {q:'ทฤษฎีนี้กล่าวว่าอะไร?', o:['ภาษาไม่มีผลต่อความคิดเลย','โครงสร้างภาษามีผลต่อการรับรู้ของผู้พูด','ทุกภาษามีโครงสร้างเหมือนกัน','การคิดเกิดก่อนภาษา'], a:1, e:'die Struktur einer Sprache die Wahrnehmung...prägt'},
+   {q:'ปัจจุบันนักภาษาศาสตร์มองทฤษฎีรูปแบบรุนแรงอย่างไร?', o:['ได้รับการยอมรับอย่างเต็มที่','ถูกหักล้างไปเป็นส่วนใหญ่ แต่เวอร์ชันที่พอประมาณยังน่าเชื่อถือ','ไม่มีใครศึกษาต่อแล้ว','พิสูจน์ได้แน่นอน 100%'], a:1, e:'weitgehend widerlegt...moderate Version...gilt...als plausibel'}
+  ]
+ },
+ listening:[
+  {de:'Das wirft die Frage auf, ob wir bereit sind.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['สิ่งนี้ทำให้เกิดคำถามว่าเราพร้อมหรือไม่','เราพร้อมแล้วแน่นอน','คำถามนี้ไม่สำคัญ','ไม่มีคำถามใดๆเลย'], a:0, e:'eine Frage aufwerfen = ทำให้เกิดคำถาม'},
+  {de:'Es bedarf keiner weiteren Erklärung.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ไม่จำเป็นต้องอธิบายเพิ่มเติมอีกแล้ว','ต้องอธิบายเพิ่มอีกมาก','ยังไม่มีคำอธิบายเลย','คำอธิบายผิดทั้งหมด'], a:0, e:'es bedarf + Genitiv = จำเป็นต้องมี'},
+  {de:'Dem ist nichts hinzuzufügen.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['ไม่มีอะไรต้องเสริมอีกแล้ว','ยังขาดอะไรไปมาก','เรื่องนี้ยังไม่จบ','ต้องเริ่มใหม่ทั้งหมด'], a:0, e:'nichts hinzuzufügen = ไม่มีอะไรต้องเพิ่ม'},
+  {de:'Das entspricht keineswegs der Realität.', q:'ประโยคที่ได้ยินแปลว่าอะไร?', o:['นั่นไม่สอดคล้องกับความเป็นจริงเลย','นั่นตรงกับความจริงทุกประการ','นั่นเป็นความจริงบางส่วน','ไม่มีใครรู้ความจริง'], a:0, e:'keineswegs = ไม่เลยแม้แต่น้อย'}
+ ],
+ writing:[
+  {prompt:'เขียนเรียงความสั้นแสดงทัศนะเชิงวิพากษ์ต่อประเด็นทางสังคมที่ซับซ้อน โดยใช้คำเชื่อมและสำนวนระดับสูง', sample:'Es lässt sich kaum bestreiten, dass gesellschaftliche Debatten zunehmend polarisiert verlaufen. Ungeachtet unterschiedlicher Standpunkte sollte ein konstruktiver Dialog stets das Ziel bleiben.'},
+  {prompt:'เขียนวิเคราะห์เปรียบเทียบมุมมองสองด้านของประเด็นหนึ่งอย่างละเอียดและสมดุล', sample:'Während die eine Seite die wirtschaftlichen Vorteile hervorhebt, weist die andere auf die sozialen Kosten hin. Beide Argumentationslinien sind nachvollziehbar, wobei eine ausgewogene Betrachtung unerlässlich erscheint.'}
+ ]
+}
+};
+
+/* ============ STATE ============ */
+const state = { level:'A1', category:'vocab', selections:{}, sentenceState:{} };
+const SCORE_KEY = 'dmn_scores_v1';
+
+/* ============ HELPERS ============ */
+const pad = n => String(n+1).padStart(2,'0');
+function escapeHTML(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2600);
+}
+function scoreMessage(pct){
+  if(pct>=80) return 'เก่งมากค่ะ!';
+  if(pct>=50) return 'ทำได้ดีค่ะ ลองทบทวนข้อที่พลาดอีกนิดนะคะ';
+  return 'ไม่เป็นไรค่ะ ลองดูคำอธิบายแล้วฝึกใหม่อีกครั้งนะคะ';
+}
+
+/* ---- score persistence (localStorage) ---- */
+function loadScores(){
+  try{ return JSON.parse(localStorage.getItem(SCORE_KEY)) || {}; }
+  catch(e){ return {}; }
+}
+function saveScoreRecord(level, cat, correct, total){
+  const all = loadScores();
+  all[level+'-'+cat] = { level, cat, correct, total, pct: Math.round((correct/total)*100), date: new Date().toISOString() };
+  try{ localStorage.setItem(SCORE_KEY, JSON.stringify(all)); }catch(e){}
+  renderScoresDashboard();
+}
+function saveWritingRecord(level, ok){
+  const all = loadScores();
+  const key = level+'-writing';
+  const rec = all[key] || {level, cat:'writing', attempted:0, ok:0};
+  rec.attempted++; if(ok) rec.ok++;
+  rec.date = new Date().toISOString();
+  all[key] = rec;
+  try{ localStorage.setItem(SCORE_KEY, JSON.stringify(all)); }catch(e){}
+  renderScoresDashboard();
+}
+function clearScores(){
+  if(confirm('ต้องการล้างคะแนนทั้งหมดใช่ไหมคะ? การกระทำนี้ไม่สามารถย้อนกลับได้')){
+    try{ localStorage.removeItem(SCORE_KEY); }catch(e){}
+    renderScoresDashboard();
+    showToast('ล้างคะแนนทั้งหมดแล้วค่ะ');
+  }
+}
+
+/* ---- speech synthesis ---- */
+let cachedVoices = [];
+function loadVoices(){ cachedVoices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
+if('speechSynthesis' in window){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+function speakGerman(text){
+  if(!('speechSynthesis' in window)){ showToast('เบราว์เซอร์นี้ไม่รองรับการอ่านเสียงค่ะ'); return; }
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = 0.88; u.pitch = 1;
+    const v = cachedVoices.find(v => v.lang && v.lang.toLowerCase().startsWith('de'));
+    if(v) u.voice = v;
+    speechSynthesis.speak(u);
+  }catch(err){ showToast('ไม่สามารถเล่นเสียงได้ในขณะนี้ค่ะ'); }
+}
+
+/* ============ RENDER: TABS ============ */
+function renderLevelTabs(){
+  const el = document.getElementById('level-tabs');
+  el.innerHTML = LEVELS.map(lv => `
+    <button class="level-tab ${lv.id===state.level?'active':''}" data-level="${lv.id}">
+      <span class="seal">${lv.id}</span><span class="sub">${lv.sub}</span>
+    </button>`).join('');
+  el.querySelectorAll('.level-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      state.level = btn.dataset.level;
+      if(!DATA[state.level][state.category]) state.category = 'vocab';
+      renderLevelTabs(); renderCategoryTabs(); renderQuizArea();
+    });
+  });
+}
+
+function renderCategoryTabs(){
+  const el = document.getElementById('category-tabs');
+  const avail = CATS.filter(c => DATA[state.level][c.id]);
+  el.innerHTML = avail.map(c => `
+    <button class="cat-tab ${c.id===state.category?'active':''}" data-cat="${c.id}">
+      <span>${c.icon}</span><span>${c.label}</span>
+    </button>`).join('');
+  el.querySelectorAll('.cat-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      state.category = btn.dataset.cat;
+      renderCategoryTabs(); renderQuizArea();
+    });
+  });
+}
+
+/* ============ RENDER: MCQ LIST (vocab/grammar/listening/reading-qs) ============ */
+function mcqListHTML(items, opts){
+  opts = opts || {};
+  return items.map((item,i)=>`
+    <div class="q-card" data-i="${i}">
+      <div class="q-num">${pad(i)}</div>
+      ${opts.audio ? `<button class="speak-btn" data-text="${escapeHTML(item.de)}">🔊 ฟังเสียง</button>` : ''}
+      <p class="q-text">${item.q}</p>
+      <div class="options">
+        ${item.o.map((opt,oi)=>`
+          <button class="opt-row" data-i="${i}" data-oi="${oi}">
+            <span class="radio"></span><span>${opt}</span>
+          </button>`).join('')}
+      </div>
+      <p class="explain" data-i="${i}">${item.e || ''}</p>
+    </div>`).join('') +
+    `<div class="score-banner" id="score-banner" style="display:none;"></div>
+     <div class="submit-row">
+       <button class="primary-btn" id="submit-quiz">ส่งคำตอบ</button>
+       <button class="ghost-btn" id="retry-quiz" style="display:none;">ทำใหม่อีกครั้ง</button>
+     </div>`;
+}
+
+function wireMcqList(container, items, catForScore){
+  container.querySelectorAll('.speak-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> speakGerman(btn.dataset.text));
+  });
+  container.querySelectorAll('.opt-row').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.dataset.i;
+      container.querySelectorAll(`.opt-row[data-i="${i}"]`).forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      state.selections[i] = Number(btn.dataset.oi);
+    });
+  });
+  const submitBtn = container.querySelector('#submit-quiz');
+  const retryBtn = container.querySelector('#retry-quiz');
+  submitBtn.addEventListener('click', ()=>{
+    let correct = 0;
+    items.forEach((item,i)=>{
+      const chosen = state.selections[i];
+      container.querySelectorAll(`.opt-row[data-i="${i}"]`).forEach(b=>{
+        const oi = Number(b.dataset.oi);
+        if(oi === item.a) b.classList.add('correct');
+        else if(oi === chosen) b.classList.add('incorrect');
+      });
+      const exp = container.querySelector(`.explain[data-i="${i}"]`);
+      if(exp) exp.classList.add('show');
+      if(chosen === item.a) correct++;
+    });
+    container.querySelectorAll('.q-card').forEach(c=>c.classList.add('graded'));
+    const pct = Math.round((correct/items.length)*100);
+    const banner = container.querySelector('#score-banner');
+    banner.style.display = 'block';
+    banner.textContent = `คุณได้ ${correct}/${items.length} คะแนน (${pct}%) — ${scoreMessage(pct)}`;
+    submitBtn.style.display = 'none';
+    retryBtn.style.display = 'inline-block';
+    saveScoreRecord(state.level, catForScore || state.category, correct, items.length);
+  });
+  retryBtn.addEventListener('click', ()=>{ state.selections = {}; renderQuizArea(); });
+}
+
+/* ============ RENDER: SENTENCE BUILDER ============ */
+function sentenceHTML(items){
+  items.forEach((item,i)=>{
+    if(!state.sentenceState[i]){
+      const order = item.w.map((w,wi)=>wi).sort(()=>Math.random()-0.5);
+      state.sentenceState[i] = { order, chosen: [] };
+    }
+  });
+  return items.map((item,i)=>{
+    const st = state.sentenceState[i];
+    return `
+    <div class="q-card" data-i="${i}">
+      <div class="q-num">${pad(i)}</div>
+      <p class="q-text">เรียงคำต่อไปนี้ให้เป็นประโยคภาษาเยอรมันที่ถูกต้อง</p>
+      <div class="word-pool" data-i="${i}">
+        ${st.order.map(wi => `<button class="chip ${st.chosen.includes(wi)?'used':''}" data-i="${i}" data-wi="${wi}">${item.w[wi]}</button>`).join('')}
+      </div>
+      <div class="answer-line" data-i="${i}"></div>
+      <div class="sentence-actions">
+        <button class="ghost-btn reshuffle" data-i="${i}">สับคำใหม่</button>
+        <button class="ghost-btn clear-answer" data-i="${i}">ล้างคำตอบ</button>
+      </div>
+      <p class="sentence-result" data-i="${i}"></p>
+    </div>`;
+  }).join('') +
+  `<div class="score-banner" id="score-banner" style="display:none;"></div>
+   <div class="submit-row">
+     <button class="primary-btn" id="submit-quiz">ตรวจคำตอบทั้งหมด</button>
+     <button class="ghost-btn" id="retry-quiz" style="display:none;">ทำใหม่อีกครั้ง</button>
+   </div>`;
+}
+
+function renderAnswerLine(container, i, item){
+  const st = state.sentenceState[i];
+  const line = container.querySelector(`.answer-line[data-i="${i}"]`);
+  line.innerHTML = st.chosen.map(wi => `<button class="chip" data-i="${i}" data-wi="${wi}">${item.w[wi]}</button>`).join('');
+  wireAnswerLineRemovals(container, i);
+}
+
+function refreshPool(container, i, item){
+  const st = state.sentenceState[i];
+  container.querySelectorAll(`.word-pool[data-i="${i}"] .chip`).forEach(chip=>{
+    const wi = Number(chip.dataset.wi);
+    chip.classList.toggle('used', st.chosen.includes(wi));
+  });
+}
+
+function wireSentence(container, items){
+  container.querySelectorAll('.word-pool .chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const i = chip.dataset.i, wi = Number(chip.dataset.wi);
+      const st = state.sentenceState[i];
+      if(st.chosen.includes(wi)) return;
+      st.chosen.push(wi);
+      renderAnswerLine(container, i, DATA[state.level].sentence[i]);
+      refreshPool(container, i, DATA[state.level].sentence[i]);
+    });
+  });
+  container.querySelectorAll('.reshuffle').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.dataset.i;
+      state.sentenceState[i] = { order: DATA[state.level].sentence[i].w.map((w,wi)=>wi).sort(()=>Math.random()-0.5), chosen: [] };
+      renderQuizArea();
+    });
+  });
+  container.querySelectorAll('.clear-answer').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.dataset.i;
+      state.sentenceState[i].chosen = [];
+      renderAnswerLine(container, i, DATA[state.level].sentence[i]);
+      refreshPool(container, i, DATA[state.level].sentence[i]);
+    });
+  });
+  const submitBtn = container.querySelector('#submit-quiz');
+  const retryBtn = container.querySelector('#retry-quiz');
+  submitBtn.addEventListener('click', ()=>{
+    let correct = 0;
+    items.forEach((item,i)=>{
+      const st = state.sentenceState[i];
+      const chosenWords = st.chosen.map(wi=>item.w[wi]);
+      const isCorrect = chosenWords.length===item.w.length && chosenWords.every((w,idx)=>w===item.w[idx]);
+      const resultEl = container.querySelector(`.sentence-result[data-i="${i}"]`);
+      resultEl.classList.add('show');
+      if(isCorrect){
+        correct++;
+        resultEl.classList.add('ok');
+        resultEl.innerHTML = `ถูกต้อง! เก่งมากค่ะ <span class="disp">${item.disp}</span>${item.tr}`;
+      }else{
+        resultEl.classList.add('no');
+        resultEl.innerHTML = `ยังไม่ถูกนะคะ ประโยคที่ถูกต้องคือ <span class="disp">${item.disp}</span>${item.tr}`;
+      }
+    });
+    const pct = Math.round((correct/items.length)*100);
+    const banner = container.querySelector('#score-banner');
+    banner.style.display = 'block';
+    banner.textContent = `คุณได้ ${correct}/${items.length} ประโยคถูกต้อง (${pct}%) — ${scoreMessage(pct)}`;
+    submitBtn.style.display = 'none';
+    retryBtn.style.display = 'inline-block';
+    saveScoreRecord(state.level, 'sentence', correct, items.length);
+  });
+  retryBtn.addEventListener('click', ()=>{ state.sentenceState = {}; renderQuizArea(); });
+}
+
+function wireAnswerLineRemovals(container, i){
+  container.querySelectorAll(`.answer-line[data-i="${i}"] .chip`).forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const wi = Number(chip.dataset.wi);
+      const st = state.sentenceState[i];
+      st.chosen = st.chosen.filter(x=>x!==wi);
+      renderAnswerLine(container, i, DATA[state.level].sentence[i]);
+      refreshPool(container, i, DATA[state.level].sentence[i]);
+    });
+  });
+}
+
+/* ============ RENDER: WRITING (AI graded + sample fallback) ============ */
+function writingHTML(items){
+  return `<p class="writing-note">ระบบนี้ใช้ AI ช่วยตรวจคำตอบและให้คำแนะนำเป็นภาษาไทย หากระบบ AI ไม่พร้อมใช้งาน สามารถกดดูคำตอบตัวอย่างได้เลยค่ะ</p>` +
+  items.map((item,i)=>`
+    <div class="q-card" data-i="${i}">
+      <div class="q-num">${pad(i)}</div>
+      <p class="q-text">${item.prompt}</p>
+      <textarea class="writing-input" data-i="${i}" placeholder="เขียนคำตอบเป็นภาษาเยอรมันที่นี่..."></textarea>
+      <div class="writing-actions">
+        <button class="primary-btn check-writing" data-i="${i}">ตรวจคำตอบกับ AI</button>
+        <button class="ghost-btn show-sample" data-i="${i}">ดูคำตอบตัวอย่าง</button>
+      </div>
+      <div class="ai-result" data-i="${i}"></div>
+      <div class="sample-answer" data-i="${i}">
+        <div class="label">ตัวอย่างคำตอบที่ถูกต้อง</div>
+        <span class="de-word">${escapeHTML(item.sample)}</span>
+      </div>
+    </div>`).join('');
+}
+
+async function gradeWriting(promptText, studentText, resultEl){
+  resultEl.innerHTML = '<p class="loading-text">กำลังตรวจคำตอบ...</p>';
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        system:'คุณคือครูสอนภาษาเยอรมันให้คนไทย ระดับ '+state.level+' ตรวจประโยคภาษาเยอรมันที่นักเรียนเขียนตามคำสั่งที่ให้ ตอบกลับเป็น JSON เท่านั้น ห้ามมีคำอื่นนอกเหนือ JSON ห้ามมี markdown หรือ backtick รูปแบบ: {"ok": true หรือ false, "corrected": "ประโยคภาษาเยอรมันที่ถูกต้องสมบูรณ์", "feedback": "คำอธิบายภาษาไทยสั้นกระชับ เป็นกันเอง ให้กำลังใจ ไม่เกิน 3 ประโยค"}',
+        messages:[{role:'user', content: 'คำสั่งแบบฝึกหัด: '+promptText.replace(/<[^>]*>/g,'')+'\n\nคำตอบของนักเรียน: '+studentText}]
+      })
+    });
+    const data = await res.json();
+    const raw = data.content.map(b=>b.text||'').join('').trim().replace(/^```json/,'').replace(/```$/,'').trim();
+    const parsed = JSON.parse(raw);
+    resultEl.innerHTML = `<div class="ai-feedback ${parsed.ok?'ok':'needs-work'}">
+      <p class="ai-verdict">${parsed.ok ? 'เยี่ยมมาก!' : 'ใกล้แล้ว ลองดูคำแนะนำนี้นะคะ'}</p>
+      <p>ประโยคที่ถูกต้อง: <span class="de-word">${escapeHTML(parsed.corrected)}</span></p>
+      <p class="ai-explain">${escapeHTML(parsed.feedback)}</p>
+    </div>`;
+    saveWritingRecord(state.level, !!parsed.ok);
+  }catch(err){
+    resultEl.innerHTML = '<p class="error-text">ขอโทษค่ะ ระบบ AI ตรวจคำตอบไม่สำเร็จในขณะนี้ ลองกดดูคำตอบตัวอย่างด้านล่างได้เลยค่ะ</p>';
+  }
+}
+
+function wireWriting(container, items){
+  container.querySelectorAll('.check-writing').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.dataset.i;
+      const textarea = container.querySelector(`.writing-input[data-i="${i}"]`);
+      const val = textarea.value.trim();
+      const resultEl = container.querySelector(`.ai-result[data-i="${i}"]`);
+      if(!val){ resultEl.innerHTML = '<p class="error-text">กรุณาเขียนคำตอบก่อนนะคะ</p>'; return; }
+      gradeWriting(items[i].prompt, val, resultEl);
+    });
+  });
+  container.querySelectorAll('.show-sample').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.dataset.i;
+      container.querySelector(`.sample-answer[data-i="${i}"]`).classList.toggle('show');
+    });
+  });
+}
+
+/* ============ RENDER: READING ============ */
+function readingHTML(data){
+  return `<div class="passage-card">${data.p}</div>` + mcqListHTML(data.qs);
+}
+
+/* ============ MAIN RENDER ============ */
+function renderQuizArea(){
+  const area = document.getElementById('quiz-area');
+  state.selections = {};
+  const cat = state.category, level = state.level;
+  if(cat==='vocab' || cat==='grammar'){
+    const items = DATA[level][cat];
+    area.innerHTML = mcqListHTML(items);
+    wireMcqList(area, items, cat);
+  }else if(cat==='listening'){
+    const items = DATA[level][cat];
+    area.innerHTML = `<p class="writing-note">กดปุ่ม "ฟังเสียง" เพื่อฟังประโยคภาษาเยอรมัน ฟังได้หลายครั้งตามต้องการ ลองพูดตามเสียงเพื่อฝึกการออกเสียงไปด้วยนะคะ</p>` + mcqListHTML(items, {audio:true});
+    wireMcqList(area, items, cat);
+  }else if(cat==='reading'){
+    const data = DATA[level][cat];
+    area.innerHTML = readingHTML(data);
+    wireMcqList(area, data.qs, cat);
+  }else if(cat==='sentence'){
+    state.sentenceState = {};
+    const items = DATA[level][cat];
+    area.innerHTML = sentenceHTML(items);
+    wireSentence(area, items);
+  }else if(cat==='writing'){
+    const items = DATA[level][cat];
+    area.innerHTML = writingHTML(items);
+    wireWriting(area, items);
+  }
+}
+
+/* ============ RENDER: SCORES DASHBOARD ============ */
+function renderScoresDashboard(){
+  const el = document.getElementById('scores-dashboard');
+  if(!el) return;
+  const all = loadScores();
+  const keys = Object.keys(all);
+  if(keys.length===0){
+    el.innerHTML = `<div class="empty-state">
+      <p>คุณยังไม่ได้ทำแบบทดสอบเลยค่ะ ลองเริ่มจากระดับ A1 ดูนะคะ</p>
+      <a href="#levels" class="primary-btn">ไปทำแบบทดสอบ</a>
+    </div>`;
+    return;
+  }
+  let totalCorrect=0, totalQuestions=0, quizCount=0;
+  keys.forEach(k=>{
+    const r = all[k];
+    if(r.cat!=='writing'){ totalCorrect+=r.correct; totalQuestions+=r.total; quizCount++; }
+  });
+  const overallPct = totalQuestions ? Math.round((totalCorrect/totalQuestions)*100) : 0;
+
+  const rows = LEVELS.map(lv=>{
+    const catsForLevel = CATS.filter(c=>DATA[lv.id][c.id]);
+    const rowsHtml = catsForLevel.map(c=>{
+      const r = all[lv.id+'-'+c.id];
+      if(!r) return `<div class="score-row empty"><span>${c.icon} ${c.label}</span><span class="dim">ยังไม่ทำ</span></div>`;
+      if(c.id==='writing'){
+        return `<div class="score-row"><span>${c.icon} ${c.label}</span><span></span><span class="score-num">${r.ok}/${r.attempted} ครั้งที่ผ่าน</span></div>`;
+      }
+      return `<div class="score-row">
+        <span>${c.icon} ${c.label}</span>
+        <span class="bar-wrap"><span class="bar" style="width:${r.pct}%"></span></span>
+        <span class="score-num">${r.correct}/${r.total} (${r.pct}%)</span>
+      </div>`;
+    }).join('');
+    return `<div class="level-block"><h3>${lv.id} <span class="dim">${lv.sub}</span></h3>${rowsHtml}</div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">${quizCount}</div><div class="stat-label">แบบทดสอบที่ทำ</div></div>
+      <div class="stat-card"><div class="stat-num">${overallPct}%</div><div class="stat-label">คะแนนเฉลี่ยรวม</div></div>
+    </div>
+    ${rows}
+    <button class="ghost-btn" id="clear-scores">ล้างคะแนนทั้งหมด</button>
+  `;
+  const clearBtn = document.getElementById('clear-scores');
+  if(clearBtn) clearBtn.addEventListener('click', clearScores);
+}
+
+/* ============ INIT ============ */
+renderLevelTabs();
+renderCategoryTabs();
+renderQuizArea();
+renderScoresDashboard();
+</script>
+</body>
+</html>
